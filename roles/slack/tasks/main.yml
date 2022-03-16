@@ -1,0 +1,10 @@
+- name: Download slack-desktop debian package
+  get_url:
+    url: https://downloads.slack-edge.com/releases/linux/4.24.0/prod/x64/slack-desktop-4.24.0-amd64.deb
+    dest: /tmp/slack-desktop.deb
+    mode: '0440'
+
+- name: Ensure slack-desktop package is installed
+  become: yes
+  apt:
+    deb: /tmp/slack-desktop.deb
