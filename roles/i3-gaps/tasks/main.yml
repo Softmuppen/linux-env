@@ -1,0 +1,38 @@
+- name: Ensure repository key for i3-gaps is added
+  become: yes
+  ansible.builtin.apt_repository:
+    repo: ppa:regolith-linux/release
+    state: present
+
+- name: Ensure i3-gaps is installed
+  become: yes
+  apt:
+    name: i3-gaps
+    state: present
+    update_cache: yes
+
+- name: Ensure i3 custom config exist
+  copy:
+    src: i3
+    dest: ~/.config/
+
+- name: Install i3-blocks and custom dependencies
+  become: yes
+  apt:
+    pkg:
+      - feh
+      - jq
+      - i3blocks
+      - lm-sensors
+    state: present
+
+- name: Ensure i3blocks custom config exist
+  copy:
+    src: i3blocks
+    dest: ~/.config/
+
+- name: Ensure i3blocks blocks are executable
+  file:
+    path: ~/.config/i3blocks/blocks/
+    recurse: yes
+    mode: u=rwx,g=rx,o=rx 

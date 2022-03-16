@@ -1,0 +1,14 @@
+- name: Ensure ~/.bashrc.d directory exist 
+  ansible.builtin.file:
+    path: ~/.bashrc.d 
+    state: directory
+    mode: '0755'
+
+- name: Insert sourcing of ~/.bashrc.d snippets to ~/.bashrc 
+  blockinfile:
+    path: ~/.bashrc
+    block: |
+      # source bashrc files from bashrc.d
+      for file in ~/.bashrc.d/*.bashrc; do
+        source "$file"
+      done

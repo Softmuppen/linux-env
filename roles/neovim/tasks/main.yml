@@ -1,0 +1,26 @@
+- name: Install neovim
+  become: yes
+  apt:
+    name: neovim
+    state: present
+
+- name: Ensure ~/.config/nvim directory exist
+  file:
+    path: ~/.config/nvim
+    state: directory
+
+- name: Ensure ~/.config/nvim/init.vim exist
+  copy:
+    src: init.vim 
+    dest: ~/.config/nvim/init.vim
+
+- name: Ensure ~/.config/nvim/ftplugin/after directory exist
+  file:
+    path: ~/.config/nvim/ftplugin/after
+    state: directory
+    mode: '0755'
+
+- name: Ensure ~/.config/nvim/ftplugin/after/yaml.vim exist
+  copy:
+    src: yaml.vim
+    dest: ~/.config/nvim/ftplugin/after/yaml.vim

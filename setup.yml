@@ -1,0 +1,12 @@
+- hosts: all
+  roles:
+    - curl
+    - pip
+    - fonts
+    - wallpaper
+    - gnome-terminal
+    - i3-gaps
+    - neovim
+    - google-chrome
+    - spotify
+    - slack

@@ -1,0 +1,9 @@
+- name: Ensure ~/.config/wallpapers exists
+  file:
+    path: ~/.config/wallpapers
+    state: directory
+
+- name: Download wallpaper
+  get_url:
+    url: https://w.wallhaven.cc/full/j3/wallhaven-j3d78p.png 
+    dest: ~/.config/wallpapers/wallpaper

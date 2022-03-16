@@ -1,0 +1,11 @@
+- name: Install fonts-firacode
+  become: yes
+  apt:
+    name: fonts-firacode
+    state: present
+
+- name: Ensure ~/.fonts exist
+  file:
+    path: ~/.fonts
+    state: directory
+
