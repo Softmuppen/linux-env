@@ -1,0 +1,7 @@
+[user]
+	email = rich.norling@gmail.com
+	name = Richard Norling
+[core]
+    editor = vim
+[alias]
+	st = status

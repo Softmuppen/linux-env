@@ -9,3 +9,20 @@
     path: ~/.fonts
     state: directory
 
+- name: Download awesome-terminal-fonts git repository
+  ansible.builtin.git:
+    repo: https://github.com/gabrielelana/awesome-terminal-fonts
+    dest: /tmp/awesome-terminal-fonts
+
+- name: Register all fonts to copy
+  find:
+    paths: /tmp/awesome-terminal-fonts/build
+    patterns: "*.ttf"
+  register: find_result
+
+- name: Copy each font from awesome-terminal-fonts to ~/.fonts
+  copy:
+    src: "{{ item.path }}"
+    remote_src: yes
+    dest: ~/.fonts
+  loop: "{{ find_result.files }}"
