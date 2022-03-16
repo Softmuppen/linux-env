@@ -2,6 +2,11 @@
 command=~/.config/i3blocks/blocks/qotd.sh
 interval=3600
 
+[VOLUME]
+command=~/.config/i3blocks/blocks/volume.sh
+interval=once
+signal=10
+
 [BATTERY]
 command=~/.config/i3blocks/blocks/battery_info.sh
 interval=60
