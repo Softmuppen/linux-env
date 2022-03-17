@@ -3,6 +3,9 @@
   apt:
     name: fonts-firacode
     state: present
+  register: install_firacode 
+  until: install_firacode is not failed
+  retries: 5
 
 - name: Ensure ~/.fonts exist
   file:
