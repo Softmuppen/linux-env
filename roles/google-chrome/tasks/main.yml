@@ -8,3 +8,6 @@
   become: yes
   apt:
     deb: /tmp/google-chrome-stable_current_amd64.deb
+  register: install_chrome
+  until: install_chrome is not failed
+  retries: 5

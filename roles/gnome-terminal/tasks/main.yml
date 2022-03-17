@@ -3,6 +3,9 @@
   apt:
     name: gnome-terminal
     state: present
+  register: install_gnome_terminal
+  until: install_gnome_terminal is not failed
+  retries: 5
 
 - name: Ensure configuration of gnome-terminal terminal bell
   dconf:

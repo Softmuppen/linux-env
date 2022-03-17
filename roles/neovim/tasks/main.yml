@@ -1,8 +1,11 @@
-- name: Install neovim
+- name: Ensure neovim package is installed
   become: yes
   apt:
     name: neovim
     state: present
+  register: install_neovim
+  until: install_neovim is not failed
+  retries: 5
 
 - name: Ensure ~/.config/nvim directory exist
   file:

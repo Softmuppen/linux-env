@@ -3,6 +3,9 @@
   apt:
     name: git
     state: present
+  register: install_git
+  until: install_git is not failed
+  retries: 5
 
 - name: Ensure ~/.gitconfig is configured
   copy:

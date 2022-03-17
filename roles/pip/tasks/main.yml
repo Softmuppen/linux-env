@@ -3,6 +3,9 @@
   apt:
     name: python3-pip
     state: present
+  register: install_pip
+  until: install_pip is not failed
+  retries: 5
 
 - name: Ensure ~/.bashrc.d/pip.bashrc exist 
   copy:

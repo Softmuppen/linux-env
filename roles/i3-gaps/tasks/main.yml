@@ -10,6 +10,9 @@
     name: i3-gaps
     state: present
     update_cache: yes
+  register: install_i3
+  until: install_i3 is not failed
+  retries: 5
 
 - name: Ensure i3 custom config exist
   copy:
@@ -25,6 +28,9 @@
       - i3blocks
       - lm-sensors
     state: present
+  register: install_i3block
+  until: install_i3block is not failed
+  retries: 5
 
 - name: Ensure i3blocks custom config exist
   copy:

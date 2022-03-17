@@ -3,7 +3,7 @@
   apt:
     name: fonts-firacode
     state: present
-  register: install_firacode 
+  register: install_firacode
   until: install_firacode is not failed
   retries: 5
 

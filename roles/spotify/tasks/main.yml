@@ -16,3 +16,6 @@
     name: spotify-client
     state: present
     update_cache: yes
+  register: install_spotify
+  until: install_spotify is not failed
+  retries: 5

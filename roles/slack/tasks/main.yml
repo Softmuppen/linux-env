@@ -8,3 +8,6 @@
   become: yes
   apt:
     deb: /tmp/slack-desktop.deb
+  register: install_slack
+  until: install_slack is not failed
+  retries: 5

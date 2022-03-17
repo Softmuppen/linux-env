@@ -3,3 +3,6 @@
   apt:
     name: curl 
     state: present
+  register: install_curl
+  until: install_curl is not failed
+  retries: 5
