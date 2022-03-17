@@ -4,6 +4,8 @@
     - role: pip
     - role: fonts
     - role: wallpaper
+      tags:
+        - wallpaper
     - role: gnome-terminal
     - role: i3
       tags:

@@ -5,6 +5,6 @@
 
 - name: Download wallpaper
   get_url:
-    url: https://w.wallhaven.cc/full/j3/wallhaven-j3d78p.png 
+    url: https://w.wallhaven.cc/full/x1/wallhaven-x12gko.png
     dest: ~/.config/wallpapers/wallpaper
     force: yes
