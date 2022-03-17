@@ -43,6 +43,8 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+bindsym $mod+Shift+aring exec google-chrome https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -207,10 +209,10 @@ workspace_auto_back_and_forth yes
 default_border pixel
 default_floating_border pixel
 
-# i3-gaps 
+# i3-gaps
 for_window [class=".*"] border pixel 2
-gaps inner 10 
-gaps outer 10
+gaps inner 5
+gaps outer 5
 
 # coloring-class        border  backgr. text    indicator child_border
 client.focused          #ff9c34 #285577 #ffffff #2e9ef4   #ff9c34
