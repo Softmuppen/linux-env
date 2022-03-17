@@ -1,31 +1,28 @@
-- name: Install fonts-firacode
-  become: yes
-  apt:
-    name: fonts-firacode
-    state: present
-  register: install_firacode
-  until: install_firacode is not failed
-  retries: 5
-
-- name: Ensure ~/.fonts exist
+- name: Ensure /tmp/nerd-fonts directory does NOT exist
   file:
-    path: ~/.fonts
-    state: directory
+    path: /tmp/nerd-fonts
+    state: absent
 
-- name: Download awesome-terminal-fonts git repository
-  ansible.builtin.git:
-    repo: https://github.com/gabrielelana/awesome-terminal-fonts
-    dest: /tmp/awesome-terminal-fonts
+- name: Download nerd-fonts sparse git repository
+  shell:
+    cmd: git clone --filter=blob:none --sparse 'https://github.com/ryanoasis/nerd-fonts'
+  args:
+    chdir: /tmp
 
-- name: Register all fonts to copy
-  find:
-    paths: /tmp/awesome-terminal-fonts/build
-    patterns: "*.ttf"
-  register: find_result
+- name: Download font directories sparsely
+  shell:
+    cmd: git sparse-checkout add patched-fonts/FiraCode patched-fonts/Terminus
+  args:
+    chdir: /tmp/nerd-fonts
 
-- name: Copy each font from awesome-terminal-fonts to ~/.fonts
-  copy:
-    src: "{{ item.path }}"
-    remote_src: yes
-    dest: ~/.fonts
-  loop: "{{ find_result.files }}"
+- name: Ensure FiraCode font is installed
+  shell:
+    cmd: ./install.sh FiraCode
+  args:
+    chdir: /tmp/nerd-fonts
+
+- name: Ensure Terminus font is installed
+  shell:
+    cmd: ./install.sh Terminus
+  args:
+    chdir: /tmp/nerd-fonts

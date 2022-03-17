@@ -1,3 +1,9 @@
+- name: Add git-core apt repository
+  become: yes
+  ansible.builtin.apt_repository:
+    repo: ppa:git-core/ppa
+    state: present
+
 - name: Ensure git package is installed
   become: yes
   apt:

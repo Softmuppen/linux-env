@@ -1,13 +1,15 @@
 - hosts: all
   roles:
-    - curl
-    - pip
-    - fonts
-    - wallpaper
-    - gnome-terminal
-    - i3-gaps
-    - git
-    - neovim
-    - google-chrome
-    - spotify
-    - slack
+    - role: curl
+    - role: pip
+    - role: fonts
+    - role: wallpaper
+    - role: gnome-terminal
+    - role: i3-gaps
+      tags:
+        - i3
+    - role: git
+    - role: neovim
+    - role: google-chrome
+    - role: spotify
+    - role: slack
