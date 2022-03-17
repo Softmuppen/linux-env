@@ -117,6 +117,12 @@ set $ws8 "8:mixer"
 set $ws9 "9:slack"
 set $ws10 "10"
 
+# Assign Workspaces:
+assign [class="google-chrome"] $ws1
+assign [class="spotify"] $ws7
+assign [class="alsamixer"] $ws8
+assign [class="slack"] $ws9
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
