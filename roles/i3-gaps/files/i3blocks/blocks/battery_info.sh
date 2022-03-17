@@ -24,7 +24,7 @@ then
     echo " $BAT_LEVEL |  $TIME_LEFT "
 
     # Print the short text.
-    echo "BAT: $BAT_LEVEL"
+    echo " $BAT_LEVEL"
     
     # Change the font color, depending on the situation.
     if [ "$IS_CHARGING" = "Charging" ]
