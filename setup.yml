@@ -5,11 +5,13 @@
     - role: fonts
     - role: wallpaper
     - role: gnome-terminal
-    - role: i3-gaps
+    - role: i3
       tags:
         - i3
     - role: git
     - role: neovim
+      tags:
+        - neovim
     - role: google-chrome
     - role: spotify
     - role: slack
