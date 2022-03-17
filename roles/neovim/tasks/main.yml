@@ -1,8 +1,15 @@
+- name: Ensure neovim repository is present
+  become: yes
+  ansible.builtin.apt_repository:
+    repo: ppa:neovim-ppa/stable
+    state: present
+
 - name: Ensure neovim package is installed
   become: yes
   apt:
     name: neovim
     state: present
+    update_cache: yes
   register: install_neovim
   until: install_neovim is not failed
   retries: 5
@@ -14,10 +21,23 @@
 
 - name: Ensure ~/.config/nvim/init.vim exist
   copy:
-    src: init.vim 
+    src: init.vim
     dest: ~/.config/nvim/init.vim
 
 - name: Ensure ~/.config/nvim/ftplugin exist
   copy:
     src: ftplugin
     dest: ~/.config/nvim
+
+- name: Ensure vundle git repository is present
+  ansible.builtin.git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: ~/.vim/bundle/Vundle.vim
+
+- name: Install vim-plug
+  shell:
+    cmd: sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+- name: Install vim vundle plugins
+  shell:
+    cmd: vim +PluginInstall +qall
