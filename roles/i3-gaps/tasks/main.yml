@@ -7,38 +7,43 @@
 - name: Ensure i3-gaps is installed
   become: yes
   apt:
-    name: i3-gaps
+    pkg:
+      - i3-gaps
+      - feh
     state: present
     update_cache: yes
   register: install_i3
   until: install_i3 is not failed
   retries: 5
 
-- name: Ensure i3 custom config exist
+- name: Ensure i3 custom configuration exist
   copy:
     src: i3
     dest: ~/.config/
 
-- name: Install i3-blocks and custom dependencies
+- name: Ensure polybar is installed
   become: yes
   apt:
     pkg:
-      - feh
-      - jq
-      - i3blocks
-      - lm-sensors
+      - polybar
+      - i3lock-fancy
+      - xbacklight
+      - arandr
+      - playerctl
     state: present
-  register: install_i3block
-  until: install_i3block is not failed
-  retries: 5
 
-- name: Ensure i3blocks custom config exist
+- name: Ensure custom polybar config exist
   copy:
-    src: i3blocks
+    src: polybar
     dest: ~/.config/
 
-- name: Ensure i3blocks blocks are executable
-  file:
-    path: ~/.config/i3blocks/blocks/
-    recurse: yes
-    mode: u=rwx,g=rx,o=rx 
+- name: Ensure rofi package is installed
+  become: yes
+  apt:
+    name: rofi
+    state: present
+
+- name: Ensure custom rofi config exist
+  copy:
+    src: rofi
+    dest: ~/.config/
