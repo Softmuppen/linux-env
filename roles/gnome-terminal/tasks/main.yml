@@ -37,12 +37,12 @@
     key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/foreground-color"
     value: "'rgb(208,207,204)'"
 
-- name: Ensure configuration of gnome-terminal use-theme-color 
+- name: Ensure configuration of gnome-terminal use-theme-color
   dconf:
     key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-theme-colors"
     value: "false"
 
-- name: Ensure configuration of gnome-terminal use-theme-transparency 
+- name: Ensure configuration of gnome-terminal use-theme-transparency
   dconf:
     key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-theme-transparency"
     value: "true"

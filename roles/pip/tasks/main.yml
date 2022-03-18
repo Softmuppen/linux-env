@@ -7,14 +7,14 @@
   until: install_pip is not failed
   retries: 5
 
-- name: Ensure ~/.bashrc.d/pip.bashrc exist 
+- name: Ensure ~/.bashrc.d/pip.bashrc exist
   copy:
     dest: ~/.bashrc.d/pip.bashrc
     mode: '755'
     content: |
       export PATH="$PATH:~/.local/bin"
 
-- name: Install pip packages 
+- name: Install pip packages
   pip:
     name:
-      - psutil 
+      - psutil

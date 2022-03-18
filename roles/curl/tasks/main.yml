@@ -1,7 +1,7 @@
 - name: Install curl
   become: yes
   apt:
-    name: curl 
+    name: curl
     state: present
   register: install_curl
   until: install_curl is not failed
