@@ -218,7 +218,10 @@ ramp-volume-foreground = ${colors.menucol-sealine}
 
 ;Brightness
 [module/brightness]
-type = internal/xbacklight
+type = internal/backlight
+card = intel_backlight
+enable-scroll = true
+
 format = <label>
 format-padding = 2
 format-prefix = 
@@ -290,7 +293,7 @@ click-left = sh ~/.config/i3/powermenu.sh
 ;Battery Indicator
 [module/battery]
 type = internal/battery
-battery = BAT1
+battery = BAT0
 full-at = 100
 
 format-charging = <animation-charging> <label-charging>

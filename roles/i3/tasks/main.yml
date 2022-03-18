@@ -37,6 +37,22 @@
     src: polybar
     dest: ~/.config/
 
+- name: Add user to 'video' group
+  become: yes
+  ansible.builtin.user:
+    name: "{{ ansible_user | default(lookup('env', 'USER'), True) }}"
+    groups: video
+    append: yes
+
+- name: Ensure udev rule for intel_backlight control exist
+  become: yes
+  copy:
+    dest: /etc/udev/rules.d/backlight.rules
+    mode: '0644'
+    content: |
+      RUN+="/bin/chgrp video /sys/class/backlight/intel_backlight/brightness"
+      RUN+="/bin/chmod g+w /sys/class/backlight/intel_backlight/brightness"
+
 - name: Ensure rofi package is installed
   become: yes
   apt:
