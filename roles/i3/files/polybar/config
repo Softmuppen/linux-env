@@ -64,7 +64,7 @@ wm-restack = i3
 tray-position = left
 
 modules-left = workspaces xkbstates xkillapp settings appfilemanager mediaplayer
-modules-center = date media
+modules-center = date
 modules-right = layout temperature memory memoryswap cpu battery brightness sound wifi powermenu
 
 
@@ -171,7 +171,7 @@ click-left = sleep 0.5 && xkill > /dev/null 2>&1 &
 ;Network
 [module/wifi]
 type = internal/network
-interface = wlp3s0
+interface = wlp0s20f3
 format-connected =  <ramp-signal>
 format-connected-padding = 2
 format-connected-foreground = ${colors.menucol-green}
@@ -189,7 +189,7 @@ ramp-signal-2 = "▄"
 ramp-signal-3 = "▅"
 ramp-signal-4 = "▇"
 ramp-signal-font = 7
-ramp-signal-foreground = ${colors.light}
+ramp-signal-foreground = ${colors.menucol-green}
 
 
 ;Sound
