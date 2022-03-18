@@ -11,6 +11,9 @@
       tags:
         - i3
     - role: git
+    - role: fzf
+      tags:
+        - fzf
     - role: neovim
       tags:
         - neovim
