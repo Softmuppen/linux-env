@@ -294,6 +294,7 @@ click-left = sh ~/.config/i3/powermenu.sh
 [module/battery]
 type = internal/battery
 battery = BAT0
+adapter = AC
 full-at = 100
 
 format-charging = <animation-charging> <label-charging>
