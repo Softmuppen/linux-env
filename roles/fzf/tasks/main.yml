@@ -1,13 +1,13 @@
 - name: Download fzf git repository
   ansible.builtin.git:
     repo: https://github.com/junegunn/fzf.git
-    dest: /tmp/fzf
+    dest: ~/.fzf
 
 - name: Run fzf installer
   shell:
     cmd: ./install --all
   args:
-    chdir: /tmp/fzf
+    chdir: ~/.fzf
 
 - name: Ensure ~/.bashrc.d/fzf.bashrc exist
   copy:
