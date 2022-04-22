@@ -63,3 +63,8 @@
   copy:
     src: rofi
     dest: ~/.config/
+
+- name: Ensure custom dunst config exist
+  copy:
+    src: dunst
+    dest: ~/.config/
