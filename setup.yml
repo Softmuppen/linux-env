@@ -7,6 +7,8 @@
       tags:
         - wallpaper
     - role: gnome-terminal
+      tags:
+        - gnome-terminal
     - role: i3
       tags:
         - i3
