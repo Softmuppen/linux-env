@@ -63,7 +63,7 @@ font-6 = ${fonts.opensansboldhigh}
 wm-restack = i3
 tray-position = left
 
-modules-left = workspaces xkbstates xkillapp settings appfilemanager mediaplayer
+modules-left = workspaces xkbstates xkillapp settings appfilemanager mediaplayer arandr-profile-switcher
 modules-center = date
 modules-right = layout temperature memory memoryswap cpu battery brightness sound wifi powermenu
 
@@ -289,6 +289,14 @@ content-underline = ${colors.menucol-lightblue}
 
 click-left = sh ~/.config/i3/powermenu.sh
 
+;Custom Arandr Profile Switcher
+[module/arandr-profile-switcher]
+type = custom/text
+
+content = 冷
+content-font = 7
+content-padding = 2
+click-left = sh ~/.config/i3/arandr-profile-switcher.sh
 
 ;Battery Indicator
 [module/battery]
