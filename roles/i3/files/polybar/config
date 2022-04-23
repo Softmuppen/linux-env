@@ -340,6 +340,11 @@ format-discharging = <animation-discharging> <label-discharging>
 format-discharging-padding = 2
 format-discharging-underline = ${colors.menucol-orange}
 
+format-full = 
+format-full-padding = 2
+format-full-underline = ${colors.menucol-orange}
+format-full-foreground = ${colors.menucol-orange}
+
 label-charging = %percentage%
 label-charging-font = 3
 
