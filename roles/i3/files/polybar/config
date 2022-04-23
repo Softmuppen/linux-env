@@ -65,7 +65,7 @@ tray-position = left
 
 modules-left = workspaces xkbstates xkillapp settings appfilemanager mediaplayer arandr-profile-switcher
 modules-center = date
-modules-right = layout temperature memory memoryswap cpu battery brightness sound wifi powermenu
+modules-right = layout temperature memory memoryswap cpu battery brightness sound wifi vpn powermenu
 
 
 ;Date correction
@@ -191,6 +191,19 @@ ramp-signal-4 = "▇"
 ramp-signal-font = 7
 ramp-signal-foreground = ${colors.menucol-green}
 
+;VPN
+[module/vpn]
+type = custom/script
+
+exec = ~/.config/i3/f5fpc.sh status
+interval = 10
+
+format-font = 7
+format-padding = 2
+format-foreground = ${colors.menucol-green}
+format-underline = ${colors.menucol-green}
+
+click-left = bash ~/.config/i3/f5fpc.sh toggle
 
 ;Sound
 [module/sound]
