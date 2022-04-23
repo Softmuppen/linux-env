@@ -200,8 +200,8 @@ interval = 5
 
 format-font = 7
 format-padding = 2
-format-foreground = ${colors.menucol-green}
-format-underline = ${colors.menucol-green}
+format-foreground = ${colors.menucol-deepblue}
+format-underline = ${colors.menucol-deepblue}
 
 click-left = bash ~/.config/i3/f5fpc.sh toggle
 
@@ -214,8 +214,8 @@ interval = 5
 
 format-font = 7
 format-paddning = 2
-format-foreground = ${colors.menucol-green}
-format-underline = ${colors.menucol-green}
+format-foreground = ${colors.menucol-blue}
+format-underline = ${colors.menucol-blue}
 
 click-left = bash ~/.config/i3/dns.sh restart
 
