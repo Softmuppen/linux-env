@@ -6,6 +6,7 @@ call plug#begin()
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'airblade/vim-rooter'
 call plug#end()
 
 " If you have vim >=8.0 or Neovim >= 0.1.5
@@ -24,6 +25,7 @@ colorscheme ayu
 " Telescope
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 
 " Vundle
 set nocompatible
@@ -54,11 +56,17 @@ set mouse=a                 " enable mouse click
 set hlsearch                " highlight search
 set incsearch               " incremental search
 
-" Navigation
+" Navigation (normal mode)
 nmap l <Up>
 nmap j <Left>
 nmap k <Down>
 nmap ö <Right>
+
+" Navigation (visual mode)
+vmap l <Up>
+vmap j <Left>
+vmap k <Down>
+vmap ö <Right>
 
 " Indentation
 set tabstop=4               " number of columns occupied by a tab

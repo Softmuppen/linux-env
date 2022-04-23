@@ -38,6 +38,15 @@
   shell:
     cmd: sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+- name: Ensure ripgrep is installed
+  become: yes
+  apt:
+    name: ripgrep
+    state: present
+  register: install_ripgrep
+  until: install_ripgrep is not failed
+  retries: 5
+
 - name: Install vim vundle plugins
   shell:
     cmd: vim +PluginInstall +qall
