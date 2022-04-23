@@ -65,7 +65,7 @@ tray-position = left
 
 modules-left = workspaces xkbstates xkillapp settings appfilemanager mediaplayer arandr-profile-switcher
 modules-center = date
-modules-right = layout temperature memory memoryswap cpu battery brightness sound wifi vpn powermenu
+modules-right = layout temperature memory memoryswap cpu battery brightness sound wifi vpn dns powermenu
 
 
 ;Date correction
@@ -196,7 +196,7 @@ ramp-signal-foreground = ${colors.menucol-green}
 type = custom/script
 
 exec = ~/.config/i3/f5fpc.sh status
-interval = 10
+interval = 5
 
 format-font = 7
 format-padding = 2
@@ -204,6 +204,20 @@ format-foreground = ${colors.menucol-green}
 format-underline = ${colors.menucol-green}
 
 click-left = bash ~/.config/i3/f5fpc.sh toggle
+
+;DNS
+[module/dns]
+type = custom/script
+
+exec = ~/.config/i3/dns.sh status
+interval = 5
+
+format-font = 7
+format-paddning = 2
+format-foreground = ${colors.menucol-green}
+format-underline = ${colors.menucol-green}
+
+click-left = bash ~/.config/i3/dns.sh restart
 
 ;Sound
 [module/sound]

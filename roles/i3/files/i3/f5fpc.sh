@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cmd="$1"
-
 vpn_status() {
     if f5fpc --info | grep vpn | grep established &> /dev/null
     then
