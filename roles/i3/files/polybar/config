@@ -63,9 +63,9 @@ font-6 = ${fonts.opensansboldhigh}
 wm-restack = i3
 tray-position = left
 
-modules-left = workspaces xkbstates xkillapp settings appfilemanager mediaplayer arandr-profile-switcher
+modules-left = workspaces xkbstates xkillapp settings appfilemanager arandr-profile-switcher mediaplayer
 modules-center = date
-modules-right = layout temperature memory memoryswap cpu battery brightness sound wifi vpn dns powermenu
+modules-right = layout temperature memory memoryswap cpu battery brightness sound bluetooth wifi vpn dns powermenu
 
 
 ;Date correction
@@ -213,7 +213,7 @@ exec = ~/.config/i3/dns.sh status
 interval = 5
 
 format-font = 7
-format-paddning = 2
+format-padding = 2
 format-foreground = ${colors.menucol-blue}
 format-underline = ${colors.menucol-blue}
 
@@ -242,6 +242,17 @@ ramp-volume-2 = 
 ramp-volume-font = 7
 ramp-volume-foreground = ${colors.menucol-sealine}
 
+;Bluetooth
+[module/bluetooth]
+type = custom/script
+exec = bash  ~/.config/i3/rofi-bluetooth --status
+interval = 5
+click-left = ~/.config/i3/rofi-bluetooth &
+
+format-font = 3
+format-padding = 2
+format-foreground = ${colors.menucol-sealine}
+format-underline = ${colors.menucol-sealine}
 
 ;Brightness
 [module/brightness]
