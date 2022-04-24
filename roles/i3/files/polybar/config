@@ -61,7 +61,7 @@ font-5 = ${fonts.nerd}
 font-6 = ${fonts.opensansboldhigh}
 
 wm-restack = i3
-tray-position = left
+tray-position = none
 
 modules-left = xkillapp settings appfilemanager arandr-profile-switcher mediaplayer
 modules-center = date
@@ -202,12 +202,12 @@ click-left = sleep 0.5 && xkill > /dev/null 2>&1 &
 [module/wifi]
 type = internal/network
 interface = wlp0s20f3
-format-connected =  <ramp-signal>
+format-connected = %{A1:nm-connection-editor:}  <ramp-signal> %{A}
 format-connected-padding = 1
 format-connected-foreground = ${colors.menucol-green}
 format-connected-underline = ${colors.menucol-green}
 
-format-disconnected = " "
+format-disconnected = %{A1:nm-connection-editor:}  %{A}
 format-disconnected-font = 3
 format-disconnected-padding = 1
 format-disconnected-foreground = ${colors.menucol-yellow}
@@ -352,7 +352,6 @@ type = custom/text
 content = ⏻
 content-font = 7
 content-padding = 2
-content-foreground = ${colors.menucol-white}
 content-background = ${colors.dark-red}
 content-underline = ${colors.menucol-red}
 
