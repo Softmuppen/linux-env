@@ -78,7 +78,7 @@ date-alt = %A, %B %d, %Y
 time-alt = %H:%M:%S
 
 format-prefix = " "
-format-padding = 2
+format-padding = 1
 format-underline = ${colors.menucol-orange}
 format-foreground = ${colors.menucol-orange}
 interval = 20
@@ -104,30 +104,30 @@ label-dimmed-underline = ${colors.background}
 label-mode = %mode%
 label-mode-background = ${colors.dark-purple}
 label-mode-underline = ${colors.fav-purple}
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-font = 3
 
 label-focused = %index%
 label-focused-background = ${colors.dark-green}
 label-focused-underline = ${colors.light-green}
-label-focused-padding = 3
+label-focused-padding = 5
 label-focused-font = 3
 
 label-unfocused = %index%
 label-unfocused-foreground = ${colors.gray}
-label-unfocused-padding = 3
+label-unfocused-padding = 1
 label-unfocused-font = 3
 
 label-visible = %index%
 label-visible-background = ${colors.dark-purple}
 label-visible-underline = ${colors.light-purple}
-label-visible-padding = 3
+label-visible-padding = 1
 label-visible-font = 3
 
 label-urgent = %index%
 label-urgent-background = ${colors.dark-red}
 label-urgent-underline = ${colors.light-red}
-label-urgent-padding = 3
+label-urgent-padding = 1
 label-urgent-font = 3
 
 
@@ -135,7 +135,7 @@ label-urgent-font = 3
 [module/mediaplayer]
 type = custom/script
 format = <label>
-format-padding = 2
+format-padding = 1
 exec = ~/.config/polybar/player.sh spotify
 exec-if = playerctl status
 interval = 0.5
@@ -150,21 +150,21 @@ format-foreground = ${colors.menucol-blue}
 type = custom/text
 content = 
 content-font = 7
-content-padding = 2
+content-padding = 1
 click-left = sh ~/.config/i3/settings.sh
 
 [module/appfilemanager]
 type = custom/text
 content = 
 content-font = 7
-content-padding = 2
+content-padding = 1
 click-left = "nemo > /dev/null 2>&1 &"
 
 [module/xkillapp]
 type = custom/text
 content = 
 content-font = 7
-content-padding = 2
+content-padding = 1
 click-left = sleep 0.5 && xkill > /dev/null 2>&1 &
 
 
@@ -173,13 +173,13 @@ click-left = sleep 0.5 && xkill > /dev/null 2>&1 &
 type = internal/network
 interface = wlp0s20f3
 format-connected =  <ramp-signal>
-format-connected-padding = 2
+format-connected-padding = 1
 format-connected-foreground = ${colors.menucol-green}
 format-connected-underline = ${colors.menucol-green}
 
 format-disconnected = " "
-format-disconnected-font = 7
-format-disconnected-padding = 2
+format-disconnected-font = 3
+format-disconnected-padding = 1
 format-disconnected-foreground = ${colors.menucol-yellow}
 format-disconnected-underline = ${colors.menucol-yellow}
 
@@ -188,7 +188,7 @@ ramp-signal-1 = "▂"
 ramp-signal-2 = "▄"
 ramp-signal-3 = "▅"
 ramp-signal-4 = "▇"
-ramp-signal-font = 7
+ramp-signal-font = 3
 ramp-signal-foreground = ${colors.menucol-green}
 
 ;VPN
@@ -198,8 +198,8 @@ type = custom/script
 exec = ~/.config/i3/f5fpc.sh status
 interval = 5
 
-format-font = 7
-format-padding = 2
+format-font = 3
+format-padding = 1
 format-foreground = ${colors.menucol-deepblue}
 format-underline = ${colors.menucol-deepblue}
 
@@ -212,8 +212,8 @@ type = custom/script
 exec = ~/.config/i3/dns.sh status
 interval = 5
 
-format-font = 7
-format-padding = 2
+format-font = 3
+format-padding = 1
 format-foreground = ${colors.menucol-blue}
 format-underline = ${colors.menucol-blue}
 
@@ -224,7 +224,7 @@ click-left = bash ~/.config/i3/dns.sh restart
 type = internal/alsa
 
 format-volume = <ramp-volume> <label-volume>
-format-volume-padding = 2
+format-volume-padding = 1
 format-volume-underline = ${colors.menucol-sealine}
 
 label-volume = %percentage%
@@ -232,7 +232,7 @@ label-volume-font = 3
 
 label-muted =  (%percentage%)
 label-muted-font = 3
-label-muted-padding = 2
+label-muted-padding = 1
 label-muted-foreground = ${colors.gray}
 label-muted-underline = ${colors.gray}
 
@@ -250,7 +250,7 @@ interval = 5
 click-left = ~/.config/i3/rofi-bluetooth &
 
 format-font = 3
-format-padding = 2
+format-padding = 1
 format-foreground = ${colors.menucol-sealine}
 format-underline = ${colors.menucol-sealine}
 
@@ -261,7 +261,7 @@ card = intel_backlight
 enable-scroll = true
 
 format = <label>
-format-padding = 2
+format-padding = 1
 format-prefix = 
 format-underline = ${colors.menucol-yellow}
 format-prefix-foreground = ${colors.menucol-yellow}
@@ -280,7 +280,7 @@ blacklist-2 = scroll lock
 format-prefix = " "
 format-underline = ${colors.menucol-blue}
 format-foreground = ${colors.menucol-blue}
-format-padding = 2
+format-padding = 1
 
 label-layout = %layout%
 label-layout-font = 2
@@ -292,7 +292,7 @@ type = internal/xkeyboard
 format = <label-indicator>
 
 format-underline = ${colors.menucol-green}
-format-padding = 2
+format-padding = 1
 
 label-indicator-on-capslock = "%{F#77BD8B} "
 label-indicator-off-capslock = "%{F#333} "
@@ -307,7 +307,7 @@ label-indicator-off-scrolllock = "%{F#333}"
 type = custom/script
 format = <label>
 format-underline = ${colors.menucol-green}
-format-padding = 2
+format-padding = 1
 
 exec = $HOME/.config/polybar/kblocks.py
 interval = 0.5
@@ -322,8 +322,9 @@ type = custom/text
 content = ⏻
 content-font = 7
 content-padding = 2
-content-foreground = ${colors.menucol-lightblue}
-content-underline = ${colors.menucol-lightblue}
+content-foreground = ${colors.menucol-white}
+content-background = ${colors.dark-red}
+content-underline = ${colors.menucol-red}
 
 click-left = bash ~/.config/i3/powermenu.sh
 
@@ -333,7 +334,7 @@ type = custom/text
 
 content = 冷
 content-font = 7
-content-padding = 2
+content-padding = 1
 click-left = sh ~/.config/i3/arandr-profile-switcher.sh
 
 ;Battery Indicator
@@ -344,15 +345,15 @@ adapter = AC
 full-at = 100
 
 format-charging = <animation-charging> <label-charging>
-format-charging-padding = 2
+format-charging-padding = 1
 format-charging-underline = ${colors.menucol-orange}
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-padding = 2
+format-discharging-padding = 1
 format-discharging-underline = ${colors.menucol-orange}
 
 format-full = 
-format-full-padding = 2
+format-full-padding = 1
 format-full-underline = ${colors.menucol-orange}
 format-full-foreground = ${colors.menucol-orange}
 
@@ -388,7 +389,7 @@ animation-discharging-foreground = ${colors.menucol-orange}
 type = internal/cpu
 interval = 0.5
 format = <label>
-format-padding = 2
+format-padding = 1
 format-underline = ${colors.menucol-red}
 
 format-prefix = 
@@ -402,13 +403,13 @@ label-font = 3
 type = internal/memory
 interval = 3
 format = <label>
-format-padding = 2
+format-padding = 1
 format-underline = ${colors.menucol-purple}
 
 format-prefix = 
 format-prefix-foreground = ${colors.menucol-purple}
 
-label = " %gb_used%"
+label = " %percentage_used%"
 label-font = 3
 
 
@@ -416,13 +417,13 @@ label-font = 3
 type = internal/memory
 interval = 3
 format = <label>
-format-padding = 2
+format-padding = 1
 format-underline = ${colors.menucol-pink}
 
 format-prefix = 
 format-prefix-foreground = ${colors.menucol-pink}
 
-label = " %gb_swap_used%"
+label = " %percentage_used%"
 label-font = 3
 
 
@@ -430,7 +431,7 @@ label-font = 3
 type = internal/temperature
 interval = 0.5
 format = <ramp> <label>
-format-padding = 2
+format-padding = 1
 format-underline = ${colors.menucol-deepblue}
 
 format-warn = <ramp> <label-warn>
