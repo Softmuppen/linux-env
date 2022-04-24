@@ -34,7 +34,7 @@ gray = #999
 dark-gray = #333
 
 
-[bar/main]
+[bar/top]
 monitor = ${env:MONITOR:}
 enable-ipc = true
 override-redirect = false
@@ -63,10 +63,41 @@ font-6 = ${fonts.opensansboldhigh}
 wm-restack = i3
 tray-position = left
 
-modules-left = workspaces xkbstates xkillapp settings appfilemanager arandr-profile-switcher mediaplayer
+modules-left = xkillapp settings appfilemanager arandr-profile-switcher mediaplayer
 modules-center = date
 modules-right = layout temperature memory memoryswap cpu battery brightness sound bluetooth wifi vpn dns powermenu
 
+[bar/bottom]
+monitor = ${env:MONITOR:}
+enable-ipc = true
+override-redirect = false
+
+bottom = true
+width = 100%
+height = 22 ;px
+
+background = ${colors.dark}
+foreground = ${colors.light}
+
+line-color = ${colors.light-purple}
+line-size = 2
+
+separator = "   "
+
+;List of fonts
+font-0 = ${fonts.opensansreg}
+font-1 = ${fonts.opensanssemibold}
+font-2 = ${fonts.opensansbold}
+font-3 = ${fonts.opensansital}
+font-4 = ${fonts.xos}
+font-5 = ${fonts.nerd}
+font-6 = ${fonts.opensansboldhigh}
+
+wm-restack = i3
+tray-position = none
+
+modules-left = workspaces
+modules-right = xkbstates
 
 ;Date correction
 [module/date]
@@ -104,7 +135,7 @@ label-dimmed-underline = ${colors.background}
 label-mode = %mode%
 label-mode-background = ${colors.dark-purple}
 label-mode-underline = ${colors.fav-purple}
-label-mode-padding = 1
+label-mode-padding = 5
 label-mode-font = 3
 
 label-focused = %index%
@@ -115,19 +146,19 @@ label-focused-font = 3
 
 label-unfocused = %index%
 label-unfocused-foreground = ${colors.gray}
-label-unfocused-padding = 1
+label-unfocused-padding = 5
 label-unfocused-font = 3
 
 label-visible = %index%
 label-visible-background = ${colors.dark-purple}
 label-visible-underline = ${colors.light-purple}
-label-visible-padding = 1
+label-visible-padding = 5
 label-visible-font = 3
 
 label-urgent = %index%
 label-urgent-background = ${colors.dark-red}
 label-urgent-underline = ${colors.light-red}
-label-urgent-padding = 1
+label-urgent-padding = 5
 label-urgent-font = 3
 
 
@@ -140,8 +171,7 @@ exec = ~/.config/polybar/player.sh spotify
 exec-if = playerctl status
 interval = 0.5
 label-font = 3
-click-middle = playerctl play-pause
-
+click-left = playerctl play-pause
 format-underline = ${colors.menucol-blue}
 format-foreground = ${colors.menucol-blue}
 
