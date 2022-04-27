@@ -44,6 +44,14 @@ Plugin 'ntpeters/vim-better-whitespace'
 call vundle#end()
 filetype plugin indent on
 
+" Set relative line numbers
+set number relativenumber
+set nu rnu
+
+" Highlight yanked text
+au TextYankPost * silent! lua vim.highlight.on_yank()
+au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=200}
+
 " Matching
 set showmatch               " show matching
 set ignorecase              " case insensitive
