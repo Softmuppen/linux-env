@@ -94,10 +94,10 @@ font-5 = ${fonts.nerd}
 font-6 = ${fonts.opensansboldhigh}
 
 wm-restack = i3
-tray-position = none
+tray-position = right
 
 modules-left = workspaces
-modules-right = xkbstates
+modules-center = xkbstates
 
 ;Date correction
 [module/date]
@@ -252,6 +252,8 @@ click-left = bash ~/.config/i3/dns.sh restart
 ;Sound
 [module/sound]
 type = internal/alsa
+
+interval = 5
 
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 1
