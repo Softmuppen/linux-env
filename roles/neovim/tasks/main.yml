@@ -47,6 +47,11 @@
   until: install_ripgrep is not failed
   retries: 5
 
-- name: Install vim vundle plugins
+- name: Install Vim Vundle plugins
   shell:
-    cmd: vim +PluginInstall +qall
+    cmd: nvim +PluginInstall +qall
+
+- name: Install Vim Plug plugins
+  shell:
+    cmd: nvim +PlugInstall +qall
+
