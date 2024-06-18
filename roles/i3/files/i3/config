@@ -111,9 +111,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -232,8 +232,8 @@ default_floating_border pixel
 
 # i3-gaps
 for_window [class=".*"] border pixel 2
-gaps inner 5
-gaps outer 5
+gaps inner 6
+gaps outer 6
 
 # coloring-class        border  backgr. text    indicator child_border
 client.focused          #ff9c34 #285577 #ffffff #2e9ef4   #ff9c34

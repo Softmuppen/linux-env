@@ -4,7 +4,7 @@ opensanssemibold = FiraCode:SemiBold:size=8
 opensansbold = FiraCode:Bold:size=8
 opensansboldhigh = FiraCode:Bold:size=11
 opensansital = FiraCode:Italic:size=9
-xos = xos4\ Terminus:size=14;0
+xos = xos4 Terminus:size=14;0
 nerd = TerminessTTF Nerd Font:size=12;0
 
 
@@ -40,8 +40,9 @@ enable-ipc = true
 override-redirect = false
 
 bottom = false
+tray-reparent = true
 width = 100%
-height = 22 ;px
+height = 22
 
 background = ${colors.dark}
 foreground = ${colors.light}
@@ -63,9 +64,9 @@ font-6 = ${fonts.opensansboldhigh}
 wm-restack = i3
 tray-position = none
 
-modules-left = xkillapp settings appfilemanager arandr-profile-switcher mediaplayer
+modules-left = xkillapp settings screenshoter arandr-profile-switcher mediaplayer
 modules-center = date
-modules-right = layout temperature memory memoryswap cpu battery brightness sound bluetooth wifi vpn dns powermenu
+modules-right = layout temperature memory memoryswap cpu battery brightness pulseaudio bluetooth wifi vpn dns powermenu
 
 [bar/bottom]
 monitor = ${env:MONITOR:}
@@ -74,7 +75,8 @@ override-redirect = false
 
 bottom = true
 width = 100%
-height = 22 ;px
+height = 22
+tray-reparent = true
 
 background = ${colors.dark}
 foreground = ${colors.light}
@@ -169,7 +171,7 @@ format = <label>
 format-padding = 1
 exec = ~/.config/polybar/player.sh spotify
 exec-if = playerctl status
-interval = 0.5
+interval = 5
 label-font = 3
 click-left = playerctl play-pause
 format-underline = ${colors.menucol-blue}
@@ -183,12 +185,12 @@ content-font = 7
 content-padding = 1
 click-left = sh ~/.config/i3/settings.sh
 
-[module/appfilemanager]
+[module/screenshoter]
 type = custom/text
-content = 
+content = 
 content-font = 7
 content-padding = 1
-click-left = "nemo > /dev/null 2>&1 &"
+click-left = sleep 0.5 && scrot -s ~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_scrot.png &
 
 [module/xkillapp]
 type = custom/text
@@ -201,13 +203,13 @@ click-left = sleep 0.5 && xkill > /dev/null 2>&1 &
 ;Network
 [module/wifi]
 type = internal/network
-interface = wlp0s20f3
-format-connected = %{A1:nm-connection-editor:}  <ramp-signal> %{A}
+interface = wlp58s0
+format-connected = %{A1:gnome-terminal -e nmtui-connect &:}  <ramp-signal> %{A}
 format-connected-padding = 1
 format-connected-foreground = ${colors.menucol-green}
 format-connected-underline = ${colors.menucol-green}
 
-format-disconnected = %{A1:nm-connection-editor:}  %{A}
+format-disconnected = %{A1:gnome-terminal -e nmtui-connect &t:}  %{A}
 format-disconnected-font = 3
 format-disconnected-padding = 1
 format-disconnected-foreground = ${colors.menucol-yellow}
@@ -250,8 +252,8 @@ format-underline = ${colors.menucol-blue}
 click-left = bash ~/.config/i3/dns.sh restart
 
 ;Sound
-[module/sound]
-type = internal/alsa
+[module/pulseaudio]
+type = internal/pulseaudio
 
 interval = 5
 
