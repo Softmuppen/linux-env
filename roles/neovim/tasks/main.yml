@@ -1,7 +1,7 @@
 - name: Ensure neovim repository is present
   become: yes
   ansible.builtin.apt_repository:
-    repo: ppa:neovim-ppa/stable
+    repo: ppa:neovim-ppa/unstable
     state: present
 
 - name: Ensure neovim package is installed
