@@ -1,14 +1,8 @@
-- name: Ensure repository key for i3-gaps is added
-  become: yes
-  ansible.builtin.apt_repository:
-    repo: ppa:regolith-linux/release
-    state: present
-
-- name: Ensure i3-gaps is installed
+- name: Ensure i3 is installed
   become: yes
   apt:
     pkg:
-      - i3-gaps
+      - i3
       - feh
     state: present
     update_cache: yes
